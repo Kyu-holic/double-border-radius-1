@@ -1,0 +1,98 @@
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.square {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: 30px;
+}
+.square:nth-child(1):hover span:nth-child(1) {
+    background-color: crimson;
+    border: none;
+}
+.square:nth-child(1):hover span:nth-child(2) {
+    background-color: rgb(20, 220, 63);
+    border: none;
+}
+.square:nth-child(1):hover span:nth-child(3) {
+    background-color: rgb(90, 20, 220);
+    border: none;
+}
+.square:nth-child(2):hover span {
+    background-color: dodgerblue;
+    border: none;
+}
+.square:nth-child(3):hover span {
+    background-color: greenyellow;
+    border: none;
+}
+.square span {
+    position: absolute;
+    /* 100% 혹은 inherit으로 해도 됨
+    width: inherit;
+    height: inherit; */
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 40% 60% 30% 50% / 55% 35% 65% 45%;
+    /* transition은 마우스 커서가 올라갔을 때 색상이
+    변하는 것때문에 주는 것 */
+    transition: 0.7s;
+}
+
+.square span:nth-child(1) {
+    animation: circle 6s linear infinite;
+}
+.square span:nth-child(2) {
+    animation: circle 4s linear infinite;
+    animation-direction: reverse;
+}
+.square span:nth-child(3) {
+    animation: circle 10s linear infinite;
+}
+
+.square:hover span:nth-child(1) {
+    opacity: 0.5;
+}
+.square:hover span:nth-child(2) {
+    opacity: 0.8;
+}
+.square:hover span:nth-child(3) {
+    opacity: 0.3;
+}
+.square div {
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-align: center;
+    color: white;
+}
+.square div a {
+    color: #fff;
+    border: 1px solid yellow;
+    border-radius: 40% 60% 30% 50% / 55% 35% 65% 45%;
+    padding: 10px;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    display: flex;
+}
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
